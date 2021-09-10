@@ -49,8 +49,16 @@ public class Consulta {
     }
 
     public String getDataDiaHora() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
         return dataDiaHora.format(format);
+    }
+
+    @Override
+    public String toString(){
+        return "Motivo: " + getMotivo()
+                + "\n Diagnóstico: " + getDiagnosticoPossivel()
+                + "\n Tratamento a ser seguido:  " + getTratamentoSeguido()
+                + "\n Data e hora de atendimento:" + getDataDiaHora();
     }
 }
