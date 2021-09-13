@@ -14,7 +14,9 @@ public class Consulta {
     public Consulta() {
     }
 
+
     public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido) {
+
         this.motivo = motivo;
         this.diagnosticoPossivel = diagnosticoPossivel;
         this.tratamentoSeguido = tratamentoSeguido;
