@@ -5,24 +5,23 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Setter
-public class Proprietario {
+public class Proprietario extends Pessoa {
 
-    private String cpf, nome, sobreNome;
     private String endereco;
     private String telefoneContato;
     private LocalDate dataDeNascimento;
 
-    public String getCpf() {
-        return cpf;
-    }
+   public String getCpf() {
+       return cpf;
+   }
 
-    public String getNome() {
-        return nome;
-    }
+   public String getNome() {
+       return nome;
+   }
 
-    public String getSobreNome() {
-        return sobreNome;
-    }
+   public String getSobreNome() {
+       return sobreNome;
+   }
 
     public String getEndereco() {
         return endereco;
@@ -36,25 +35,22 @@ public class Proprietario {
         return dataDeNascimento;
     }
 
-    public Proprietario() {
+   public Proprietario() { 
     }
 
-    public Proprietario(String cpf, String nome, String sobreNome, String endereco, String telefoneContato, LocalDate dataDeNascimento) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.sobreNome = sobreNome;
+    public Proprietario(String nome, String sobreNome, Integer cpf ,String endereco, String telefoneContato, LocalDate dataDeNascimento) {
+        super(nome, sobreNome, cpf);
         this.endereco = endereco;
         this.telefoneContato = telefoneContato;
         this.dataDeNascimento = dataDeNascimento;
     }
 
-
     @Override
     public String toString() {
         return "Proprietario{" +
-                "cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", sobreNome='" + sobreNome + '\'' +
+                "cpf='" + super.getCpf() + '\'' +
+                ", nome='" + super.getNome() + '\'' +
+                ", sobreNome='" + super.getSobrenome() + '\'' +
                 ", endereco='" + endereco + '\'' +
                 ", telefoneContato='" + telefoneContato + '\'' +
                 ", dataDeNascimento=" + dataDeNascimento +
