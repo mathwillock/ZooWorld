@@ -11,17 +11,17 @@ public class Proprietario extends Pessoa {
     private String telefoneContato;
     private LocalDate dataDeNascimento;
 
-//    public String getCpf() {
-//        return cpf;
-//    }
-//
-//    public String getNome() {
-//        return nome;
-//    }
-//
-//    public String getSobreNome() {
-//        return sobreNome;
-//    }
+   public String getCpf() {
+       return cpf;
+   }
+
+   public String getNome() {
+       return nome;
+   }
+
+   public String getSobreNome() {
+       return sobreNome;
+   }
 
     public String getEndereco() {
         return endereco;
@@ -35,8 +35,8 @@ public class Proprietario extends Pessoa {
         return dataDeNascimento;
     }
 
-//    public Proprietario() { // Pendente
-//    }
+   public Proprietario() { 
+    }
 
     public Proprietario(String nome, String sobreNome, Integer cpf ,String endereco, String telefoneContato, LocalDate dataDeNascimento) {
         super(nome, sobreNome, cpf);
