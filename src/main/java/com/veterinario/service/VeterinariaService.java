@@ -1,5 +1,6 @@
 package com.veterinario.service;
 
+import com.veterinario.model.Consulta;
 import com.veterinario.model.Paciente;
 import com.veterinario.model.Proprietario;
 import lombok.Getter;
@@ -28,5 +29,7 @@ public class VeterinariaService {
         pacienteList.add(paciente);
         return paciente;
     }
+
+
 
 }
