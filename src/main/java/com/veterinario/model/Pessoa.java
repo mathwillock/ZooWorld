@@ -4,9 +4,9 @@ public abstract class Pessoa {
 
     private String nome;
     private String sobrenome;
-    private final Integer cpf;
+    private String cpf;
 
-    public Pessoa(String nome, String sobrenome, Integer cpf) {
+    public Pessoa(String nome, String sobrenome, String cpf) {
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -31,12 +31,12 @@ public abstract class Pessoa {
         this.sobrenome = sobrenome;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     // Pendente pois só falta formatar CPF - Marcelo vai assumir.
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
    }
 
