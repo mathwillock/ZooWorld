@@ -3,16 +3,17 @@ package com.veterinario.model;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Setter
 public class Paciente {
 
-    private Integer numeroDoPaciente;
+    private final Double numeroDoPaciente = Math.random()*50;
     private String especie, cor, raca, nome;
     private String sexo;
     private LocalDateTime dataDeNascimento;
 
-    public Integer getNumeroDoPaciente() {
+    public Double getNumeroDoPaciente() {
         return numeroDoPaciente;
     }
 
@@ -36,15 +37,16 @@ public class Paciente {
         return sexo;
     }
 
-    public LocalDateTime getDataDeNascimento() {
-        return dataDeNascimento;
+
+    public String getDataDeNascimento() {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return dataDeNascimento.format(format);
     }
 
     public Paciente() {
     }
 
-    public Paciente(Integer numeroDoPaciente, String especie, String cor, String raca, String nome, String sexo, LocalDateTime dataDeNascimento) {
-        this.numeroDoPaciente = numeroDoPaciente;
+    public Paciente(String especie, String cor, String raca, String nome, String sexo, LocalDateTime dataDeNascimento) {
         this.especie = especie;
         this.cor = cor;
         this.raca = raca;
