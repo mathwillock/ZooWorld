@@ -12,8 +12,8 @@ public abstract class Pessoa {
         this.sobrenome = sobrenome;
     }
 
-//    public Pessoa() {
-//    }.
+   public Pessoa() {
+   }
 
     public String getNome() {
         return nome;
@@ -36,9 +36,9 @@ public abstract class Pessoa {
     }
 
     // Pendente pois só falta formatar CPF - Marcelo vai assumir.
-//    public void setCpf(Integer cpf) {
-//        this.cpf = cpf;
-//    }
+    public void setCpf(Integer cpf) {
+        this.cpf = cpf;
+   }
 
     @Override
     public abstract String toString();
