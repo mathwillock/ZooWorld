@@ -9,18 +9,9 @@ public class Consulta {
     private String diagnosticoPossivel;
     private String tratamentoSeguido;
     private LocalDateTime dataDiaHora;
+    private Paciente paciente;
+    private MedicoVeterinario medicoVeterinario;
 
-
-    public Consulta() {
-    }
-
-    public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido) {
-        this.motivo = motivo;
-        this.diagnosticoPossivel = diagnosticoPossivel;
-        this.tratamentoSeguido = tratamentoSeguido;
-        this.dataDiaHora = LocalDateTime.now();
-
-    }
 
     public String getMotivo() {
         return motivo;
@@ -52,11 +43,35 @@ public class Consulta {
         return dataDiaHora.format(format);
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public MedicoVeterinario getMedicoVeterinario() {
+        return medicoVeterinario;
+    }
+
+    public Consulta() {
+    }
+  
+
+    public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario) {
+        this.motivo = motivo;
+        this.diagnosticoPossivel = diagnosticoPossivel;
+        this.tratamentoSeguido = tratamentoSeguido;
+        this.dataDiaHora = LocalDateTime.now();
+        this.paciente = paciente;
+        this.medicoVeterinario = medicoVeterinario;
+    }
+
     @Override
     public String toString(){
-        return "Motivo: " + getMotivo()
+        return  "\n Paciente: " + paciente
+                +"Motivo: " + getMotivo()
                 + "\n Diagnóstico: " + getDiagnosticoPossivel()
                 + "\n Tratamento a ser seguido:  " + getTratamentoSeguido()
-                + "\n Data e hora de atendimento:" + getDataDiaHora();
+                + "\n Data e hora de atendimento:" + getDataDiaHora()
+                + "\n Medico Veterinário: " + medicoVeterinario;
+
     }
 }
