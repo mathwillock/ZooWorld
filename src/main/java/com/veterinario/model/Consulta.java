@@ -9,19 +9,17 @@ public class Consulta {
     private String diagnosticoPossivel;
     private String tratamentoSeguido;
     private LocalDateTime dataDiaHora;
-    private Paciente paciente;
-    private MedicoVeterinario veterinario;
+
 
     public Consulta() {
     }
 
-    public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario veterinario) {
+    public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido) {
         this.motivo = motivo;
         this.diagnosticoPossivel = diagnosticoPossivel;
         this.tratamentoSeguido = tratamentoSeguido;
         this.dataDiaHora = LocalDateTime.now();
-        this.paciente = paciente;
-        this.veterinario = veterinario;
+
     }
 
     public String getMotivo() {
