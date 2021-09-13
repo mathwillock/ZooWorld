@@ -9,9 +9,9 @@ public class Consulta {
     private String diagnosticoPossivel;
     private String tratamentoSeguido;
     private LocalDateTime dataDiaHora;
-
     private Paciente paciente;
     private MedicoVeterinario medicoVeterinario;
+
 
     public String getMotivo() {
         return motivo;
@@ -53,6 +53,7 @@ public class Consulta {
 
     public Consulta() {
     }
+  
 
     public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario) {
         this.motivo = motivo;
