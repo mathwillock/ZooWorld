@@ -13,25 +13,20 @@ public class Validador
          int soma_10prim = 0;
          int soma_11dig = 0;
 
-        String result;
+        String result = cpf;
         int [] vetorcpf;
 
         if (matchesPontoTraco)
         {
-            result = cpf.replace(".", "");
-            result = cpf.replace("-", "");
+            result = result.replace(".", "");
+            result = result.replace("-", "");
         }
 
-        if (matchesSoNumero)
-        {
-            result = cpf;
-        }
-
-        else
+        if (!matchesSoNumero)
         {
             return false;
-            //throw Excecao argumento invalido que deve ser tratado na classe de criacao do cliente
         }
+
 
         //tratando o cpf
 
@@ -44,7 +39,7 @@ public class Validador
             fact--;
         }
 
-        if (vetorcpf[9] != 11 - soma_9prim%11)
+        if (vetorcpf[9] != (soma_9prim%11)%10)
         {
             //throw cpf invalido
             return false;
@@ -57,7 +52,7 @@ public class Validador
             fact--;
         }
 
-        if (vetorcpf[9] != 11 - soma_10prim%11)
+        if (vetorcpf[9] != (soma_10prim%11)%10)
         {
             //throw cpf invalido
             return false;
