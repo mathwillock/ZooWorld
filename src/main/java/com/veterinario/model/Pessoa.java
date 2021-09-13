@@ -35,7 +35,7 @@ public abstract class Pessoa {
         return cpf;
     }
 
-    // Pendente pois só falta formatar CPF - Marcelo vai assumir.
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
    }

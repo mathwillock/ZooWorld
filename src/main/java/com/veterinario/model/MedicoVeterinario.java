@@ -10,10 +10,16 @@ public class MedicoVeterinario extends Pessoa {
     private Integer numeroRegistro;
     private String especialidade;
 
-    public MedicoVeterinario(String nomeDoMedico, String sobrenomeDoMedico, String cpf, Integer numeroRegistro, String especialidade) {
-        super(nomeDoMedico, sobrenomeDoMedico, cpf);
+    public MedicoVeterinario() {
+    }
+
+    public MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
+        super(nome, sobrenome, cpf);
         this.numeroRegistro = numeroRegistro;
         this.especialidade = especialidade;
+    }
+
+    public MedicoVeterinario(String nome, String sobrenome, String cpf, String especialidade, Integer numeroRegistro) {
     }
 
     @Override
