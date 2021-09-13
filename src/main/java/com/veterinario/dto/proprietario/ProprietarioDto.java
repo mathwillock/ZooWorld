@@ -34,6 +34,6 @@ public class ProprietarioDto implements Serializable {
     }
 
     public static ProprietarioDto converter(Proprietario proprietario) {
-        return new ProprietarioDto(proprietario.getNome(), proprietario.getSobreNome(), proprietario.getDataDeNascimento());
+        return new ProprietarioDto(proprietario.getNome(), proprietario.getSobrenome(), proprietario.getDataDeNascimento());
     }
 }
