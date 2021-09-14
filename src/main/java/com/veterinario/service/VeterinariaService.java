@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Getter
@@ -45,17 +46,15 @@ public class VeterinariaService {
     }
 
     public static String listarConsultasPaciente(String nome, String especie) {
+           consultaList.stream()
+                   .filter(consulta -> consulta.getPaciente().getNome().equals(nome)
+                         && consulta.getPaciente().getEspecie().equals(especie))
+                   .sorted((c1, c2) -> c2.getDataDiaHora().compareTo(c1.getDataDiaHora()))
+                   .forEach(paciente -> System.out.println(paciente.getPaciente() + " " + paciente.getMotivo()
+                         + " " + paciente.getDiagnosticoPossivel() + " " + paciente.getTratamentoSeguido()
+                         + " " + paciente.getMedicoVeterinario() + " " + paciente.getPaciente().getProprietario().getNome()));
 
-        for (Consulta consultas : consultaList) {
-            if (consultas.getPaciente().getNome().equals(nome) && consultas
-                    .getPaciente().getEspecie().equals(especie)) {
-                consultaList.sort((Consulta a, Consulta b) -> b.getDataDiaHora().compareTo(a.getDataDiaHora()));
-                consultaList.forEach(c -> System.out.println(c.getPaciente() + " "
-                        + c.getMotivo() + " " + c.getDiagnosticoPossivel() + " " + c.getTratamentoSeguido() + " " +
-                        c.getMedicoVeterinario().getNome() + " " + c.getDataDiaHora()));
 
-            }
-        }
         return null;
     }
 
