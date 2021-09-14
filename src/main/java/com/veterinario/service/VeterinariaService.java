@@ -62,14 +62,13 @@ public class VeterinariaService {
 
 
 
-    public List<Paciente> listarPaciente()
-    {
-            Comparators comparadorPorPaciente = new Comparators();
-            Collections.sort(pacienteList, comparadorPorPaciente);
+    public List<Paciente> listarPaciente() {
+        Comparators comparadorPorPaciente = new Comparators();
+        Collections.sort(pacienteList, comparadorPorPaciente);
 
         System.out.println(pacienteList.toString());
-            return pacienteList;
-
+        return pacienteList;
+    }
 
     public static String listarConsultasPaciente(String nome, String especie) {
            consultaList.stream()
