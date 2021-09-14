@@ -23,25 +23,40 @@ public class VeterinariaService {
     }
 
 
-    public Proprietario criarProprietario(Proprietario proprietario){
-       proprietarioList.add(proprietario);
+    public static Proprietario criarProprietario(Proprietario proprietario) {
+        proprietarioList.add(proprietario);
         return proprietario;
     }
 
-    public Paciente cadastrarPaciente(Paciente paciente) {
+    public static Paciente cadastrarPaciente(Paciente paciente) {
         pacienteList.add(paciente);
         return paciente;
     }
 
-    public MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
+    public static MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
         medicoVeterinarioList.add(medico);
         return medico;
     }
 
-    public Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario){
+    public static Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario) {
         Consulta novaConsulta = new Consulta(motivo, diagnosticoPossivel, tratamentoSeguido, paciente, medicoVeterinario);
         consultaList.add(novaConsulta);
         return novaConsulta;
+    }
+
+    public static String listarConsultasPaciente(String nome, String especie) {
+
+        for (Consulta consultas : consultaList) {
+            if (consultas.getPaciente().getNome().equals(nome) && consultas
+                    .getPaciente().getEspecie().equals(especie)) {
+                consultaList.sort((Consulta a, Consulta b) -> b.getDataDiaHora().compareTo(a.getDataDiaHora()));
+                consultaList.forEach(c -> System.out.println(c.getPaciente() + " "
+                        + c.getMotivo() + " " + c.getDiagnosticoPossivel() + " " + c.getTratamentoSeguido() + " " +
+                        c.getMedicoVeterinario().getNome() + " " + c.getDataDiaHora()));
+
+            }
+        }
+        return null;
     }
 
 

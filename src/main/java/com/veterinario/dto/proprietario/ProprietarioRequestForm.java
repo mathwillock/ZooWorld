@@ -16,11 +16,11 @@ public class ProprietarioRequestForm implements Serializable {
     private String cpf, nome, sobreNome;
     private String endereco;
     private String telefoneContato;
-    private LocalDateTime dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
 
     public String getDataDeNascimento() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return dataDeNascimento.format(format);
 
     }
@@ -28,7 +28,7 @@ public class ProprietarioRequestForm implements Serializable {
     public ProprietarioRequestForm() {
     }
 
-    public ProprietarioRequestForm(String cpf, String nome, String sobreNome, String endereco, String telefoneContato, LocalDateTime dataDeNascimento) {
+    public ProprietarioRequestForm(String cpf, String nome, String sobreNome, String endereco, String telefoneContato, LocalDate dataDeNascimento) {
         this.cpf = cpf;
         this.nome = nome;
         this.sobreNome = sobreNome;
@@ -39,5 +39,6 @@ public class ProprietarioRequestForm implements Serializable {
 
     public Proprietario converte() {
         return new Proprietario(nome, sobreNome, cpf, endereco, telefoneContato, dataDeNascimento);
+
     }
 }
