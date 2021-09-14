@@ -4,9 +4,11 @@ import com.veterinario.model.Consulta;
 import com.veterinario.model.MedicoVeterinario;
 import com.veterinario.model.Paciente;
 import com.veterinario.model.Proprietario;
+import com.veterinario.controllers.Validador;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,21 +21,28 @@ public class VeterinariaService {
     private static List<MedicoVeterinario> medicoVeterinarioList = new ArrayList<>();
     private static List<Consulta> consultaList = new ArrayList<>();
 
+    private Validador v = new Validador();
+
     public VeterinariaService() {
     }
 
+    public boolean cadastraProprietario(String nome, String sobreNome, String cpf ,String endereco, String telefoneContato, LocalDateTime dataDeNascimento)
+    {
 
-    public Proprietario criarProprietario(Proprietario proprietario){
+    }
+
+    private Proprietario criaProprietario(Proprietario proprietario){
        proprietarioList.add(proprietario);
         return proprietario;
     }
 
-    public Paciente cadastrarPaciente(Paciente paciente) {
+
+    private Paciente cadastrarPaciente(Paciente paciente) {
         pacienteList.add(paciente);
         return paciente;
     }
 
-    public MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
+    private MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
         medicoVeterinarioList.add(medico);
         return medico;
     }
