@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -51,6 +52,17 @@ public class VeterinariaService {
         Consulta novaConsulta = new Consulta(motivo, diagnosticoPossivel, tratamentoSeguido, paciente, medicoVeterinario);
         consultaList.add(novaConsulta);
         return novaConsulta;
+    }
+
+
+
+    public List<Paciente> listarPaciente(List<Paciente> listapaciente)
+    {
+            Comparators comparadorPorPaciente = new Comparators();
+            Collections.sort(listapaciente, comparadorPorPaciente);
+
+            return listapaciente;
+
     }
 
 
