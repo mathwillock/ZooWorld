@@ -27,23 +27,20 @@ public class VeterinariaService {
     public VeterinariaService() {
     }
 
-    public boolean cadastraProprietario(String nome, String sobreNome, String cpf ,String endereco, String telefoneContato, LocalDateTime dataDeNascimento)
-    {
 
-    }
 
-    private Proprietario criaProprietario(Proprietario proprietario){
+    public Proprietario criaProprietario(Proprietario proprietario){
        proprietarioList.add(proprietario);
         return proprietario;
     }
 
 
-    private Paciente cadastrarPaciente(Paciente paciente) {
+    public Paciente cadastrarPaciente(Paciente paciente) {
         pacienteList.add(paciente);
         return paciente;
     }
 
-    private MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
+    public MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
         medicoVeterinarioList.add(medico);
         return medico;
     }
@@ -56,12 +53,13 @@ public class VeterinariaService {
 
 
 
-    public List<Paciente> listarPaciente(List<Paciente> listapaciente)
+    public List<Paciente> listarPaciente()
     {
             Comparators comparadorPorPaciente = new Comparators();
-            Collections.sort(listapaciente, comparadorPorPaciente);
+            Collections.sort(pacienteList, comparadorPorPaciente);
 
-            return listapaciente;
+        System.out.println(pacienteList.toString());
+            return pacienteList;
 
     }
 
