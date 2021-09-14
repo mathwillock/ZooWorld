@@ -24,12 +24,12 @@ public class VeterinariaService {
     }
 
 
-    public static Proprietario criarProprietario(Proprietario proprietario) {
+    public Proprietario criarProprietario(Proprietario proprietario) {
         proprietarioList.add(proprietario);
         return proprietario;
     }
 
-    public static Paciente cadastrarPaciente(Paciente paciente) {
+    public Paciente cadastrarPaciente(Paciente paciente) {
         pacienteList.add(paciente);
         return paciente;
     }
@@ -52,9 +52,19 @@ public class VeterinariaService {
                    .sorted((c1, c2) -> c2.getDataDiaHora().compareTo(c1.getDataDiaHora()))
                    .forEach(paciente -> System.out.println(paciente.getPaciente() + " " + paciente.getMotivo()
                          + " " + paciente.getDiagnosticoPossivel() + " " + paciente.getTratamentoSeguido()
-                         + " " + paciente.getMedicoVeterinario() + " " + paciente.getPaciente().getProprietario().getNome()));
+                         + " " + paciente.getMedicoVeterinario().getNome() + " " + paciente.getPaciente().getProprietario().getNome()));
 
 
+        return null;
+    }
+
+    public static Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
+        for (Consulta consulta : consultaList) {
+            if (consulta.getMedicoVeterinario().getNome().equals(nome) &&
+                    consulta.getMedicoVeterinario().getNumeroRegistro().equals(numeroRegistro)) {
+                return consultaList.size();
+            }
+        }
         return null;
     }
 
