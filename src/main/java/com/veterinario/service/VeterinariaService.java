@@ -11,6 +11,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Getter
@@ -29,8 +30,16 @@ public class VeterinariaService {
 
 
 
+
     public Proprietario criaProprietario(Proprietario proprietario){
        proprietarioList.add(proprietario);
+        return proprietario;
+    }
+
+
+
+    public Proprietario criarProprietario(Proprietario proprietario) {
+        proprietarioList.add(proprietario);
         return proprietario;
     }
 
@@ -60,6 +69,29 @@ public class VeterinariaService {
 
         System.out.println(pacienteList.toString());
             return pacienteList;
+
+
+    public static String listarConsultasPaciente(String nome, String especie) {
+           consultaList.stream()
+                   .filter(consulta -> consulta.getPaciente().getNome().equals(nome)
+                         && consulta.getPaciente().getEspecie().equals(especie))
+                   .sorted((c1, c2) -> c2.getDataDiaHora().compareTo(c1.getDataDiaHora()))
+                   .forEach(paciente -> System.out.println(paciente.getPaciente() + " " + paciente.getMotivo()
+                         + " " + paciente.getDiagnosticoPossivel() + " " + paciente.getTratamentoSeguido()
+                         + " " + paciente.getMedicoVeterinario().getNome() + " " + paciente.getPaciente().getProprietario().getNome()));
+
+
+        return null;
+    }
+
+    public static Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
+        for (Consulta consulta : consultaList) {
+            if (consulta.getMedicoVeterinario().getNome().equals(nome) &&
+                    consulta.getMedicoVeterinario().getNumeroRegistro().equals(numeroRegistro)) {
+                return consultaList.size();
+            }
+        }
+        return null;
 
     }
 
