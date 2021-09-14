@@ -11,7 +11,7 @@ public class Proprietario extends Pessoa {
 
     private String endereco;
     private String telefoneContato;
-    private LocalDateTime dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
 
     public String getEndereco() {
@@ -23,14 +23,14 @@ public class Proprietario extends Pessoa {
     }
 
     public String getDataDeNascimento() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return dataDeNascimento.format(format);
     }
 
    public Proprietario() { 
     }
 
-    public Proprietario(String nome, String sobreNome, String cpf ,String endereco, String telefoneContato, LocalDateTime dataDeNascimento) {
+    public Proprietario(String nome, String sobreNome, String cpf ,String endereco, String telefoneContato, LocalDate dataDeNascimento) {
         super(nome, sobreNome, cpf);
         this.endereco = endereco;
         this.telefoneContato = telefoneContato;

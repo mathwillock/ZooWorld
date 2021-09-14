@@ -1,19 +1,26 @@
 package com.veterinario.model;
 
+import com.veterinario.service.VeterinariaService;
+import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @Setter
+@Getter
 public class Paciente {
 
-    private final Double numeroDoPaciente = Math.random()*50;
+    private String numeroDoPaciente;
     private String especie, cor, raca, nome;
     private String sexo;
-    private LocalDateTime dataDeNascimento;
+    private LocalDate dataDeNascimento;
+    private Proprietario proprietario;
 
-    public Double getNumeroDoPaciente() {
+
+    public String getNumeroDoPaciente() {
+        numeroDoPaciente = UUID.randomUUID().toString();
         return numeroDoPaciente;
     }
 
@@ -39,21 +46,34 @@ public class Paciente {
 
 
     public String getDataDeNascimento() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return dataDeNascimento.format(format);
     }
 
     public Paciente() {
     }
 
-    public Paciente(String especie, String cor, String raca, String nome, String sexo, LocalDateTime dataDeNascimento) {
+    public Paciente(String especie, String cor, String raca, String nome, String sexo, LocalDate dataDeNascimento, Proprietario proprietario) {
         this.especie = especie;
         this.cor = cor;
         this.raca = raca;
         this.nome = nome;
         this.sexo = sexo;
         this.dataDeNascimento = dataDeNascimento;
+        this.proprietario = proprietario;
     }
 
-
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "numeroDoPaciente='" + numeroDoPaciente + '\'' +
+                ", especie='" + especie + '\'' +
+                ", cor='" + cor + '\'' +
+                ", raca='" + raca + '\'' +
+                ", nome='" + nome + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", dataDeNascimento=" + dataDeNascimento +
+                ", proprietario=" + proprietario +
+                '}';
+    }
 }
