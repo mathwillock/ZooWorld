@@ -45,7 +45,7 @@ public class PacienteRequestForm implements Serializable {
     }
 
     public Paciente converte(){
-        return new Paciente(especie, cor, raca, nome, sexo, dataDeNascimento, numeroDoPaciente, proprietario);
+        return new Paciente(especie, cor, raca, nome, sexo, dataDeNascimento, proprietario);
 
     }
 }

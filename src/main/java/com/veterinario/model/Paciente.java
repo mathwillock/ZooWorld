@@ -53,14 +53,13 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String especie, String cor, String raca, String nome, String sexo, LocalDate dataDeNascimento, String numeroDoPaciente, Proprietario proprietario) {
+    public Paciente(String especie, String cor, String raca, String nome, String sexo, LocalDate dataDeNascimento, Proprietario proprietario) {
         this.especie = especie;
         this.cor = cor;
         this.raca = raca;
         this.nome = nome;
         this.sexo = sexo;
         this.dataDeNascimento = dataDeNascimento;
-        this.numeroDoPaciente = numeroDoPaciente;
         this.proprietario = proprietario;
     }
 
