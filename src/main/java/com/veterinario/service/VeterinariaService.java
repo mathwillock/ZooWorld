@@ -108,7 +108,7 @@ public class VeterinariaService {
         return null;
     }
 
-    public static Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
+    public Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
         for (Consulta consulta : consultaList) {
             if (consulta.getMedicoVeterinario().getNome().equals(nome) &&
                     consulta.getMedicoVeterinario().getNumeroRegistro().equals(numeroRegistro)) {
