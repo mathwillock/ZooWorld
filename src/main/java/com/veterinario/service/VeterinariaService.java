@@ -33,9 +33,11 @@ public class VeterinariaService {
     public VeterinariaService() {
     }
 
+
     /*
         criar proprietario dto e metodo auxiliar
      */
+
     public Proprietario criarProprietario(Proprietario proprietario) {
         proprietarioList.add(proprietario);
         return proprietario;
