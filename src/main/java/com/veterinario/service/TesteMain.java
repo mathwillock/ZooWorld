@@ -1,5 +1,6 @@
 package com.veterinario.service;
 
+import com.veterinario.dto.medico.MedicoRequestForm;
 import com.veterinario.dto.paciente.PacienteRequestForm;
 import com.veterinario.dto.proprietario.ProprietarioRequestForm;
 import com.veterinario.model.MedicoVeterinario;
@@ -44,7 +45,7 @@ public class TesteMain {
                 "989175347", LocalDate.of(2012,3,07)
         );
 
-        Paciente lupy = new Paciente(
+        PacienteRequestForm lupy = new PacienteRequestForm(
                 "Cachorro", "Malhado",
                 "Vira-lata", "Lupy",
                 "Macho",LocalDate.of(2015, 3,12),
@@ -58,14 +59,14 @@ public class TesteMain {
                 alex
         );
 
-        Paciente mel = new Paciente(
+        PacienteRequestForm mel = new PacienteRequestForm(
                 "Gato", "Marrom",
                 "Vira-lata", "Mel",
                 "Mel",LocalDate.of(2015, 3,12),
                 alex
         );
 
-        Paciente gorda = new Paciente(
+        PacienteRequestForm gorda = new PacienteRequestForm(
                 "Gato", "Marrom",
                 "Vira-lata", "Gorda",
                 "Fêmea",LocalDate.of(2015, 3,12),
@@ -99,7 +100,7 @@ public class TesteMain {
                 LocalDate.of(1983, 5, 15)
         );
 
-        Paciente lulu = new Paciente(
+        PacienteRequestForm lulu = new PacienteRequestForm(
                 "Cachorro",
                 "Branco",
                 "Lulu da Pomerandia",
@@ -109,7 +110,7 @@ public class TesteMain {
                 alex
         );
 
-        Paciente luan2 = new Paciente(
+        PacienteRequestForm luan2 = new PacienteRequestForm(
                 "Gato",
                 "Marrom",
                 "Siamês",
@@ -119,7 +120,7 @@ public class TesteMain {
                 alex
         );
 
-        Paciente amora = new Paciente(
+        PacienteRequestForm amora = new PacienteRequestForm(
                 "Cachorro",
                 "Bege",
                 "Bulldog francês",
@@ -129,7 +130,7 @@ public class TesteMain {
                 hugo
         );
 
-        Paciente apolo = new Paciente(
+        PacienteRequestForm apolo = new PacienteRequestForm(
                 "Cachorro",
                 "Preto",
                 "Shih-tzu",
@@ -139,7 +140,7 @@ public class TesteMain {
                 hugo
         );
 
-        Paciente bruno = new Paciente(
+        PacienteRequestForm bruno = new PacienteRequestForm(
                 "Cachorro",
                 "Preto",
                 "Shih-tzu",
@@ -159,17 +160,17 @@ public class TesteMain {
                 mark
         );
 
-        MedicoVeterinario mv = new MedicoVeterinario(
+        MedicoRequestForm mv = new MedicoRequestForm(
 //   MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
                 "Valter", "CasaGrande", "01849037015",
-                245832, "Animais Domésticos"
+                "Animais Domésticos", 245832
 
         );
 
-        MedicoVeterinario mv2 = new MedicoVeterinario(
+        MedicoRequestForm mv2 = new MedicoRequestForm(
 //   MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
                 "Pedro", "CasaGrande", "01849037015",
-                245832, "Animais Fazenda"
+                "Animais Fazenda", 245832
 
         );
 
@@ -178,13 +179,13 @@ public class TesteMain {
         vs.createProprietario(mariaInes);
         vs.createProprietario(benjamin);
 
-        vs.cadastrarPaciente(luan2);
-        vs.cadastrarPaciente(lupy);
-        vs.cadastrarPaciente(mel);
-        vs.cadastrarPaciente(gorda);
+        vs.createPaciente(luan2);
+        vs.createPaciente(lupy);
+        vs.createPaciente(mel);
+        vs.createPaciente(gorda);
 
-        vs.cadastrarMedico(mv);
-        vs.cadastrarMedico(mv2);
+        vs.createMedico(mv);
+        vs.createMedico(mv2);
 
         vs.cadastrarConsulta("Não se alimente.","Dor na barriga",
                 "Gotas de orvalho, colhidas pelas freiras cegas do tibet somente com roupas intimas.",
