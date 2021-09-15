@@ -75,8 +75,8 @@ public class VeterinariaService {
 
 
     public Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel,
-                                      String tratamentoSeguido, Paciente paciente,
-                                      MedicoVeterinario medicoVeterinario){
+                                      String tratamentoSeguido, PacienteRequestForm paciente,
+                                      MedicoRequestForm medicoVeterinario){
         Consulta novaConsulta = new Consulta(motivo, diagnosticoPossivel, tratamentoSeguido, paciente, medicoVeterinario);
         consultaList.add(novaConsulta);
         return novaConsulta;

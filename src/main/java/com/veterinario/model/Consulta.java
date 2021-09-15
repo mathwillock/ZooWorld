@@ -1,5 +1,8 @@
 package com.veterinario.model;
 
+import com.veterinario.dto.medico.MedicoRequestForm;
+import com.veterinario.dto.paciente.PacienteRequestForm;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -11,8 +14,8 @@ public class Consulta {
     private String tratamentoSeguido;
     private LocalDate dataDia;
     private LocalTime hora;
-    private Paciente paciente;
-    private MedicoVeterinario medicoVeterinario;
+    private PacienteRequestForm paciente;
+    private MedicoRequestForm medicoVeterinario;
 
 
     public String getMotivo() {
@@ -45,11 +48,11 @@ public class Consulta {
         return dataDia;
     }
 
-    public Paciente getPaciente() {
+    public PacienteRequestForm getPaciente() {
         return paciente;
     }
 
-    public MedicoVeterinario getMedicoVeterinario() {
+    public MedicoRequestForm getMedicoVeterinario() {
         return medicoVeterinario;
     }
 
@@ -62,7 +65,7 @@ public class Consulta {
   
 
     public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido,
-                    Paciente paciente, MedicoVeterinario medicoVeterinario) {
+                    PacienteRequestForm paciente, MedicoRequestForm medicoVeterinario) {
         this.motivo = motivo;
         this.diagnosticoPossivel = diagnosticoPossivel;
         this.tratamentoSeguido = tratamentoSeguido;
