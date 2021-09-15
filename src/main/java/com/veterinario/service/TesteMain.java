@@ -1,17 +1,75 @@
 package com.veterinario.service;
 
+import com.veterinario.model.MedicoVeterinario;
 import com.veterinario.model.Paciente;
 import com.veterinario.model.Proprietario;
 
 import java.time.LocalDate;
+
+
 import java.time.LocalDateTime;
+
 
 public class TesteMain {
 
     public static void main(String[] args) {
 
 
-        Proprietario alex = new Proprietario (
+        VeterinariaService vs = new VeterinariaService();
+
+        Proprietario alex = new Proprietario(
+                "Alex", " Cruz",
+                "81440030049", "Joao Dentice",
+                "989175347", LocalDate.of(1983,1,22)
+        );
+
+        Proprietario cassia = new Proprietario(
+                "Cassia", "Guedes",
+                "01843051290","Joao Dentice",
+                "989175347", LocalDate.of(1987,9,29)
+        );
+
+        Proprietario mariaInes = new Proprietario(
+                "Maria Inês", "Soares",
+                "01843051290","Joao Dentice",
+                "989175347", LocalDate.of(1959,6,11)
+        );
+
+        Proprietario benjamin = new Proprietario(
+                "Benjamin", "Guedes",
+                "01843051290","Joao Dentice",
+                "989175347", LocalDate.of(2012,3,07)
+        );
+
+        Paciente lupy = new Paciente(
+                "Cachorro", "Malhado",
+                "Vira-lata", "Lupy",
+                "Macho",LocalDate.of(2015, 3,12),
+                alex
+        );
+
+        Paciente luan = new Paciente(
+                "Gato", "Marrom",
+                "Vira-lata", "Luan",
+                "Macho",LocalDate.of(2015, 3,12),
+                alex
+        );
+
+        Paciente mel = new Paciente(
+                "Gato", "Marrom",
+                "Vira-lata", "Mel",
+                "Mel",LocalDate.of(2015, 3,12),
+                alex
+        );
+
+        Paciente gorda = new Paciente(
+                "Gato", "Marrom",
+                "Vira-lata", "Gorda",
+                "Fêmea",LocalDate.of(2015, 3,12),
+                alex
+        );
+
+        Proprietario alex2 = new Proprietario (
                 "Alex",
                 "Santos",
                 "sdkfgdsdjg",
@@ -38,24 +96,17 @@ public class TesteMain {
                 LocalDate.of(1983, 5, 15)
         );
 
+        Paciente lulu = new Paciente(
+                "Cachorro",
+                "Branco",
+                "Lulu da Pomerandia",
+                "lulu",
+                "M",
+                LocalDate.of(1983, 5, 15),
+                alex
+        );
 
-
-
-        //pETS
-
-
-
-            Paciente lulu = new Paciente(
-                    "Cachorro",
-                    "Branco",
-                    "Lulu da Pomerandia",
-                    "lulu",
-                    "M",
-                    LocalDate.of(1983, 5, 15),
-                    alex
-            );
-
-        Paciente luan = new Paciente(
+        Paciente luan2 = new Paciente(
                 "Gato",
                 "Marrom",
                 "Siamês",
@@ -101,16 +152,58 @@ public class TesteMain {
                 "Corada",
                 "Chrissie",
                 "F",
-                LocalDate.of(2008, 24, 1),
+                LocalDate.of(2008, 12, 1),
                 mark
         );
 
+        MedicoVeterinario mv = new MedicoVeterinario(
+//   MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
+                "Valter", "CasaGrande", "01849037015",
+                245832, "Animais Domésticos"
 
+        );
 
+        MedicoVeterinario mv2 = new MedicoVeterinario(
+//   MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
+                "Pedro", "CasaGrande", "01849037015",
+                245832, "Animais Fazenda"
 
+        );
+
+        vs.criarProprietario(alex2);
+        vs.criarProprietario(cassia);
+        vs.criarProprietario(mariaInes);
+        vs.criarProprietario(benjamin);
+
+        vs.cadastrarPaciente(luan2);
+        vs.cadastrarPaciente(lupy);
+        vs.cadastrarPaciente(mel);
+        vs.cadastrarPaciente(gorda);
+
+        vs.cadastrarMedico(mv);
+        vs.cadastrarMedico(mv2);
+
+        vs.cadastrarConsulta("Não se alimente.","Dor na barriga",
+                "Gotas de orvalho, colhidas pelas freiras cegas do tibet somente com roupas intimas.",
+                luan2,mv2);
+
+        vs.cadastrarConsulta("Não se alimente.","Dor na barriga",
+                "Gotas de orvalho, colhidas pelas freiras cegas do tibet somente com roupas intimas.",
+                mel,mv2);
+        vs.cadastrarConsulta("Não se alimente.","Dor na barriga",
+                "Gotas de orvalho, colhidas pelas freiras cegas do tibet somente com roupas intimas.",
+                lupy,mv);
+        vs.cadastrarConsulta("Não se alimente.","Dor na barriga",
+                "Gotas de orvalho, colhidas pelas freiras cegas do tibet somente com roupas intimas.",
+                gorda,mv);
+
+        LocalDate data = LocalDate.of(2021,9,14);
+        LocalDate dataFinal = LocalDate.of(2021,9,12);
+        vs.listarConsultasPorDia(data);
 
 
     }
+
 
 
 }

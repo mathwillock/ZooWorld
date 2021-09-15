@@ -8,10 +8,9 @@ import com.veterinario.controllers.Validador;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Getter
@@ -54,7 +53,9 @@ public class VeterinariaService {
         return medico;
     }
 
-    public Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario){
+    public Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel,
+                                      String tratamentoSeguido, Paciente paciente,
+                                      MedicoVeterinario medicoVeterinario){
         Consulta novaConsulta = new Consulta(motivo, diagnosticoPossivel, tratamentoSeguido, paciente, medicoVeterinario);
         consultaList.add(novaConsulta);
         return novaConsulta;
@@ -70,11 +71,11 @@ public class VeterinariaService {
         return pacienteList;
     }
 
-    public static String listarConsultasPaciente(String nome, String especie) {
+    public String listarConsultasPaciente(String nome, String especie) {
            consultaList.stream()
                    .filter(consulta -> consulta.getPaciente().getNome().equals(nome)
                          && consulta.getPaciente().getEspecie().equals(especie))
-                   .sorted((c1, c2) -> c2.getDataDiaHora().compareTo(c1.getDataDiaHora()))
+                   .sorted((c1, c2) -> c2.getDataDia().compareTo(c1.getDataDia()))
                    .forEach(paciente -> System.out.println(paciente.getPaciente() + " " + paciente.getMotivo()
                          + " " + paciente.getDiagnosticoPossivel() + " " + paciente.getTratamentoSeguido()
                          + " " + paciente.getMedicoVeterinario().getNome() + " " + paciente.getPaciente().getProprietario().getNome()));
@@ -94,5 +95,27 @@ public class VeterinariaService {
 
     }
 
+    public void listarConsultasPorDia(LocalDate dataDia) {
+
+            consultaList.stream().filter(c -> dataDia.compareTo(c.getDataDia()) == 0)
+                    .forEach(c -> System.out.println(
+                            c.getPaciente().getNumeroDoPaciente()
+                                + " " + c.getPaciente().getNome()
+                                + " " + c.getPaciente().getEspecie()
+                                + " " + c.getPaciente().getSexo()
+                                + " " + c.getPaciente().getRaca()
+                                + " " + c.getMotivo()
+                                + " " + c.getDiagnosticoPossivel()
+                                + " " + c.getTratamentoSeguido()
+                                + " " + c.getDataDia()
+                                + " " + c.getHora()
+                                + " " + c.getPaciente().getProprietario().getNome()
+                                + " " + c.getPaciente().getProprietario().getCpf()
+                                + " " + c.getMedicoVeterinario().getNome()
+                                + " " + c.getMedicoVeterinario().getNumeroRegistro()
+                    ));
+
+
+        }
 
 }
