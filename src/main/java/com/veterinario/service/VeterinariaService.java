@@ -1,5 +1,11 @@
 package com.veterinario.service;
 
+import com.veterinario.dto.medico.MedicoRequestForm;
+import com.veterinario.dto.medico.MedicoResponseDto;
+import com.veterinario.dto.paciente.PacienteRequestForm;
+import com.veterinario.dto.paciente.PacienteResponseDto;
+import com.veterinario.dto.proprietario.ProprietarioDto;
+import com.veterinario.dto.proprietario.ProprietarioRequestForm;
 import com.veterinario.model.Consulta;
 import com.veterinario.model.MedicoVeterinario;
 import com.veterinario.model.Paciente;
@@ -27,31 +33,46 @@ public class VeterinariaService {
     public VeterinariaService() {
     }
 
-
-
-
-    public Proprietario criaProprietario(Proprietario proprietario){
-       proprietarioList.add(proprietario);
-        return proprietario;
-    }
-
-
-
+    /*
+        criar proprietario dto e metodo auxiliar
+     */
     public Proprietario criarProprietario(Proprietario proprietario) {
         proprietarioList.add(proprietario);
         return proprietario;
     }
 
+    public ProprietarioDto createProprietario(ProprietarioRequestForm proprietarioForm) {
+        Proprietario proprietario = criarProprietario(proprietarioForm.converte());
+        return ProprietarioDto.converter(proprietario);
+    }
 
+    /*
+        criar paciente dto e metodo auxiliar
+     */
     public Paciente cadastrarPaciente(Paciente paciente) {
         pacienteList.add(paciente);
         return paciente;
     }
 
+    public PacienteResponseDto createPaciente(PacienteRequestForm pacienteForm) {
+        Paciente paciente = cadastrarPaciente(pacienteForm.converte());
+        return PacienteResponseDto.converter(paciente);
+    }
+
+    /*
+        criar medico dto e metodo auxiliar
+     */
+
     public MedicoVeterinario cadastrarMedico(MedicoVeterinario medico) {
         medicoVeterinarioList.add(medico);
         return medico;
     }
+
+    public MedicoResponseDto createMedico(MedicoRequestForm medicoForm) {
+        MedicoVeterinario medico = medicoForm.converte();
+        return MedicoResponseDto.converter(medico);
+    }
+
 
     public Consulta cadastrarConsulta(String motivo, String diagnosticoPossivel,
                                       String tratamentoSeguido, Paciente paciente,
@@ -76,9 +97,12 @@ public class VeterinariaService {
                    .filter(consulta -> consulta.getPaciente().getNome().equals(nome)
                          && consulta.getPaciente().getEspecie().equals(especie))
                    .sorted((c1, c2) -> c2.getDataDia().compareTo(c1.getDataDia()))
-                   .forEach(paciente -> System.out.println(paciente.getPaciente() + " " + paciente.getMotivo()
-                         + " " + paciente.getDiagnosticoPossivel() + " " + paciente.getTratamentoSeguido()
-                         + " " + paciente.getMedicoVeterinario().getNome() + " " + paciente.getPaciente().getProprietario().getNome()));
+                   .forEach(paciente -> System.out.println(paciente.getPaciente()
+                           + " " + paciente.getMotivo()
+                           + " " + paciente.getDiagnosticoPossivel()
+                           + " " + paciente.getTratamentoSeguido()
+                           + " " + paciente.getMedicoVeterinario().getNome()
+                           + " " + paciente.getPaciente().getProprietario().getNome()));
 
 
         return null;

@@ -24,7 +24,7 @@ public class MedicoResponseDto implements Serializable {
         this.numeroRegistro = numeroRegistro;
     }
 
-    public MedicoResponseDto converter(MedicoVeterinario medico) {
+    public static MedicoResponseDto converter(MedicoVeterinario medico) {
         return new MedicoResponseDto(medico.getNome(), medico.getSobrenome(),
                 medico.getEspecialidade(), medico.getNumeroRegistro());
     }
