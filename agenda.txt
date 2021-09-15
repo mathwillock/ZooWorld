@@ -1,0 +1,6 @@
+
+ Paciente: Paciente{numeroDoPaciente='null', especie='Gato', cor='Marrom', raca='Siamês', nome='Luan', sexo='M', dataDeNascimento=1983-05-15, proprietario=Proprietario{cpf='sdkfgdsdjg', nome='Alex', sobreNome='Santos', endereco='Rua Gauchos', telefoneContato='(45)456456456', dataDeNascimento=1981-04-01}}Motivo: Infarte
+ Diagnóstico: Morreu
+ Tratamento a ser seguido:  Enterrar
+ Data e hora de atendimento:15/09/2021 18:16:24
+ Medico Veterinário: MedicoVeterinario{cpf=132456785, nomeDoMedico='matheus', sobrenomeDoMedico='willock', numeroRegistro=132, especialidade='cardio'}
