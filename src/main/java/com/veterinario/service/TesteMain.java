@@ -1,5 +1,7 @@
 package com.veterinario.service;
 
+import com.veterinario.dto.paciente.PacienteRequestForm;
+import com.veterinario.dto.proprietario.ProprietarioRequestForm;
 import com.veterinario.model.MedicoVeterinario;
 import com.veterinario.model.Paciente;
 import com.veterinario.model.Proprietario;
@@ -17,25 +19,26 @@ public class TesteMain {
 
         VeterinariaService vs = new VeterinariaService();
 
+
         Proprietario alex = new Proprietario(
                 "Alex", " Cruz",
                 "81440030049", "Joao Dentice",
                 "989175347", LocalDate.of(1983,1,22)
         );
 
-        Proprietario cassia = new Proprietario(
+        ProprietarioRequestForm cassia = new ProprietarioRequestForm(
                 "Cassia", "Guedes",
                 "01843051290","Joao Dentice",
                 "989175347", LocalDate.of(1987,9,29)
         );
 
-        Proprietario mariaInes = new Proprietario(
+        ProprietarioRequestForm mariaInes = new ProprietarioRequestForm(
                 "Maria Inês", "Soares",
                 "01843051290","Joao Dentice",
                 "989175347", LocalDate.of(1959,6,11)
         );
 
-        Proprietario benjamin = new Proprietario(
+        ProprietarioRequestForm benjamin = new ProprietarioRequestForm(
                 "Benjamin", "Guedes",
                 "01843051290","Joao Dentice",
                 "989175347", LocalDate.of(2012,3,07)
@@ -48,7 +51,7 @@ public class TesteMain {
                 alex
         );
 
-        Paciente luan = new Paciente(
+        PacienteRequestForm luan = new PacienteRequestForm(
                 "Gato", "Marrom",
                 "Vira-lata", "Luan",
                 "Macho",LocalDate.of(2015, 3,12),
@@ -69,7 +72,7 @@ public class TesteMain {
                 alex
         );
 
-        Proprietario alex2 = new Proprietario (
+        ProprietarioRequestForm alex2 = new ProprietarioRequestForm (
                 "Alex",
                 "Santos",
                 "sdkfgdsdjg",
@@ -146,7 +149,7 @@ public class TesteMain {
                 mark
         );
 
-        Paciente chrissie = new Paciente(
+        PacienteRequestForm chrissie = new PacienteRequestForm(
                 "Calopsita",
                 "Cinza",
                 "Corada",
@@ -170,10 +173,10 @@ public class TesteMain {
 
         );
 
-        vs.criarProprietario(alex2);
-        vs.criarProprietario(cassia);
-        vs.criarProprietario(mariaInes);
-        vs.criarProprietario(benjamin);
+        vs.createProprietario(alex2);
+        vs.createProprietario(cassia);
+        vs.createProprietario(mariaInes);
+        vs.createProprietario(benjamin);
 
         vs.cadastrarPaciente(luan2);
         vs.cadastrarPaciente(lupy);
