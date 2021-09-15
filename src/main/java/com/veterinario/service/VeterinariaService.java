@@ -29,15 +29,6 @@ public class VeterinariaService {
     }
 
 
-
-
-    public Proprietario criaProprietario(Proprietario proprietario){
-       proprietarioList.add(proprietario);
-        return proprietario;
-    }
-
-
-
     public Proprietario criarProprietario(Proprietario proprietario) {
         proprietarioList.add(proprietario);
         return proprietario;

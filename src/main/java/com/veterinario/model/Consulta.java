@@ -51,9 +51,6 @@ public class Consulta {
         return medicoVeterinario;
     }
 
-    public Consulta() {
-    }
-  
 
     public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido, Paciente paciente, MedicoVeterinario medicoVeterinario) {
         this.motivo = motivo;
