@@ -26,7 +26,7 @@ public class MedicoRequestForm implements Serializable {
     }
 
     public MedicoVeterinario converte() {
-        return new MedicoVeterinario(nome, sobrenome, cpf, especialidade, numeroRegistro);
+        return new MedicoVeterinario(nome, sobrenome, cpf, numeroRegistro, especialidade);
     }
 
 

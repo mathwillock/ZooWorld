@@ -33,9 +33,11 @@ public class VeterinariaService {
     public VeterinariaService() {
     }
 
+
     /*
         criar proprietario dto e metodo auxiliar
      */
+
     public Proprietario criarProprietario(Proprietario proprietario) {
         proprietarioList.add(proprietario);
         return proprietario;
@@ -108,7 +110,7 @@ public class VeterinariaService {
         return null;
     }
 
-    public static Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
+    public Integer totalConsultasMedico(String nome, Integer numeroRegistro) {
         for (Consulta consulta : consultaList) {
             if (consulta.getMedicoVeterinario().getNome().equals(nome) &&
                     consulta.getMedicoVeterinario().getNumeroRegistro().equals(numeroRegistro)) {

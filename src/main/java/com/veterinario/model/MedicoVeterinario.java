@@ -10,7 +10,7 @@ public class MedicoVeterinario extends Pessoa {
     private Integer numeroRegistro;
     private String especialidade;
 
-    public MedicoVeterinario() {
+    public MedicoVeterinario(String matheus, String willock, int i, String s, String cardio) {
     }
 
     public MedicoVeterinario(String nome, String sobrenome, String cpf, Integer numeroRegistro, String especialidade) {
@@ -19,8 +19,6 @@ public class MedicoVeterinario extends Pessoa {
         this.especialidade = especialidade;
     }
 
-    public MedicoVeterinario(String nome, String sobrenome, String cpf, String especialidade, Integer numeroRegistro) {
-    }
 
     @Override
     public String toString() {

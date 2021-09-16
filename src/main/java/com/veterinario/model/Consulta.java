@@ -56,6 +56,7 @@ public class Consulta {
         return medicoVeterinario;
     }
 
+
     public String getHora() {
         return hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
@@ -63,6 +64,7 @@ public class Consulta {
     public Consulta() {
     }
   
+
 
     public Consulta(String motivo, String diagnosticoPossivel, String tratamentoSeguido,
                     PacienteRequestForm paciente, MedicoRequestForm medicoVeterinario) {
